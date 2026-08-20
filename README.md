@@ -15,15 +15,37 @@ conda install pytorch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 pytorch-cuda=
 pip install -r requirements.txt
 ```
 
-Please prepare the dataset, which can be downloaded from [this link](https://rvlab.snu.ac.kr/research/omnistereo).
+## Downloads
+- [Synthetic datasets](https://rvlab.snu.ac.kr/research/omnistereo): OmniThings, OmniHouse, Urban
+- [OmniPus](https://github.com/EunjinSon1/OmniPus)
+- [Pretrained models](https://drive.google.com/drive/folders/1-huyzAzQYTdxXcs6cCmr8BEvYHj14fPv?usp=sharing)
 
 
+## Training
+Train on OmniThings:
+```bash
+python train.py --dbname omnithings
+```
+Finetune on OmniHouse and Sunny:
+```bash
+python train.py --dbname omnihouse sunny --total_epochs 15 --lr 0.000354 --pretrain_ckpt ./checkpoints/<checkpoint_file>.pth
+```
+Train on OmniPus:
+```bash
+python train.py --dbname <dbname> --total_epochs 15 --wdecay 0.1 --sigmoid_param 5 --phi_deg 42.4
+# dbname can be omnipusa, omnipusb, omnipusc
+```
 
-## TODO
- - [ ] Release training code.
- - [ ] Release inference code.
- - [ ] Release model checkpoints.
- - [ ] Release paper.
+## Evaluation
+Evaluate on the synthetic dataset:
+```bash
+python eval.py --dbname <dbname> --restore_ckpt ./checkpoints/<checkpoint_file>.pth --save_misc
+```
+Evaluate on OmniPus:
+```bash
+python eval.py --dbname <dbname> --phi_deg 42.4 --restore_ckpt ./checkpoints/<checkpoint_file>.pth --save_misc
+# To evaluate in metric scale, add --eval_metric
+```
 
 ## Acknowledgements
 This repository is built upon **[OmniMVS](https://github.com/hyu-cvlab/omnimvs-pytorch)**, **[RomniStereo](https://github.com/HalleyJiang/RomniStereo)**, and **[NP-CVP-MVSNet](https://github.com/NVlabs/NP-CVP-MVSNet)**.
