@@ -1,0 +1,13 @@
+# Core numeric / config
+numpy
+scipy
+PyYAML
+easydict
+einops
+tensorboard
+Pillow
+opencv-python
+scikit-image
+tifffile
+matplotlib
+open3d
