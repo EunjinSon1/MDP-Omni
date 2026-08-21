@@ -1,8 +1,15 @@
-<h2 align="center"><b>MDP-Omni: Parameter-free Multimodal Depth Prior-based Sampling for Omnidirectional Stereo Matching</b></h2>
-<h4 align="center"><b>ICCV 2025</b></h4>
-<div align="center">Eunjin Son, HyungGi Jo, Wookyong Kwon, Sang Jun Lee*</div>
-<br>
-<p align="center"><img src="https://github.com/user-attachments/assets/f81d16ea-707f-4eb4-913e-bc7a5c4037c3"></p>
+<h2 align="center"><b>MDP-Omni and OmniPus</b></h2>
+
+> **MDP-Omni: Parameter-free Multimodal Depth Prior-based Sampling for Omnidirectional Stereo Matching, [ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/papers/Son_MDP-Omni_Parameter-free_Multimodal_Depth_Prior-based_Sampling_for_Omnidirectional_Stereo_Matching_ICCV_2025_paper.pdf)**
+> 
+> Eunjin Son, HyungGi Jo, Wookyong Kwon, Sang Jun Lee*
+
+> **(Under review) Towards Real-World Omnidirectional Stereo Matching with Multimodal Depth Prior-Based Sampling**
+> 
+> Eunjin Son, HyungGi Jo, Wookyong Kwon, Sang Jun Lee*
+
+<img width="1696" height="575" alt="son7" src="https://github.com/user-attachments/assets/f33ca0bb-b328-4960-bd93-04be79887885" />
+
 
 ## Requirements
 Install the requirements:
@@ -19,6 +26,33 @@ pip install -r requirements.txt
 - [Synthetic datasets](https://rvlab.snu.ac.kr/research/omnistereo): OmniThings, OmniHouse, Urban
 - [OmniPus](https://github.com/EunjinSon1/OmniPus)
 - [Pretrained models](https://drive.google.com/drive/folders/1-huyzAzQYTdxXcs6cCmr8BEvYHj14fPv?usp=sharing)
+
+## OmniPus
+We introduce the first real-world dataset, OmniPus, for multi-view fisheye-based omnidirectional stereo matching.
+It contains 24,882 samples across 33 sequences collected at three university campuses: Jeonbuk National University (OmniPus-A), Jeonju University (OmniPus-B), and Wonkwang University (OmniPus-C).
+Each sample includes 960×540 multi-view RGB images and a 640×160 depth map captured using NileCam21 cameras and an Ouster OS1 LiDAR.
+
+<img src="https://github.com/user-attachments/assets/9d612bae-d704-4136-bffb-eff769dfcb2c" width="40%">
+
+
+For privacy reasons, OmniPus is available upon request via [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSf0_dXAtZGoctc5Sb8huWU7ag_nuWyF30FNMlro2GSMXmDwng/viewform?usp=publish-editor).
+
+OmniPus consists of three subsets, OmniPus-A, OmniPus-B, and OmniPus-C, with the following folder structure:
+```bash
+OmniPus/
+├──calibration
+    ├── cam.yaml             # Calibration parameters in .yaml format
+    └── mask.png             # Masks for fisheye camera 
+├──omnipusa/                 # OmniPus-A
+    └──case/
+       ├── resize_cam1       # Resized front camera RGB images
+       ├── resize_cam2       # Resized right camera RGB images
+       ├── resize_cam3       # Resized back camera RGB images
+       ├── resize_cam4       # Resized left camera RGB images
+       └── omnidepth_gt      # Depth maps in .tiff format saved as inverse depth
+├──omnipusb/                 # OmniPus-B
+└──omnipusc/                 # OmniPus-C
+``` 
 
 
 ## Training
