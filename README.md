@@ -32,7 +32,7 @@ We introduce the first real-world dataset, OmniPus, for multi-view fisheye-based
 It contains 24,882 samples across 33 sequences collected at three university campuses: Jeonbuk National University (OmniPus-A), Jeonju University (OmniPus-B), and Wonkwang University (OmniPus-C).
 Each sample includes 960×540 multi-view RGB images and a 640×160 depth map captured using NileCam21 cameras and an Ouster OS1 LiDAR.
 
-<img src="https://github.com/user-attachments/assets/9d612bae-d704-4136-bffb-eff769dfcb2c" width="40%">
+<img src="https://github.com/user-attachments/assets/ea4958b0-b36c-46da-92a2-3ff957fc9106" width="60%">
 
 
 For privacy reasons, OmniPus is available upon request via [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSf0_dXAtZGoctc5Sb8huWU7ag_nuWyF30FNMlro2GSMXmDwng/viewform?usp=publish-editor).
