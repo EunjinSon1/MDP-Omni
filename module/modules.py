@@ -250,6 +250,7 @@ def amvf(x, max_fov, k):
 
     x = (x - min_val).div_(max_val - min_val)
     norm_weight_s = 1 - 2 / (1 + ((2 - x) / (x + 1e-6)).pow(k))
+    norm_weight_s = norm_weight_s.clamp_(min=0.0, max=1.0)
     return norm_weight_s
 
 
